@@ -103,7 +103,7 @@ class Solix:
             self.proxies = []
 
     def check_proxy_schemes(self, proxies):
-        schemes = ["http://", "https://", "socks4://", "socks5://"]
+        schemes = ["socks5://"]
         if any(proxies.startswith(scheme) for scheme in schemes):
             return proxies
         return f"http://{proxies}"
@@ -487,7 +487,7 @@ class Solix:
                 self.log(f"{Fore.RED+Style.BRIGHT}No Accounts Loaded.{Style.RESET_ALL}")
                 return
             
-            use_proxy_choice = self.print_question()
+            use_proxy_choice = 2
 
             use_proxy = False
             if use_proxy_choice in [1, 2]:
